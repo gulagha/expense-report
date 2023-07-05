@@ -1,4 +1,5 @@
-import { defineCustomElements } from '../dist/esm/loader'
+import { defineCustomElements } from '../loader'
+import "../src/globals.css";
 
 defineCustomElements();
 
