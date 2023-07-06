@@ -1,12 +1,10 @@
 export default {
-  title: 'Atoms/Icon',
+  title: 'Atoms/Backdrop',
   tags: ['autodocs'],
   render: () => {
     return `
-      <gg-icon name='delete-icon'> </gg-icon>
-      <gg-icon name='light-mode-icon'> </gg-icon>
-      <gg-icon name='dark-mode-icon'> </gg-icon>
-      <gg-icon name='edit-icon'> </gg-icon>
+      <gg-backdrop open> </gg-backdrop>
+      <gg-expenses-list> </gg-expenses-list>
     `
   }
 };

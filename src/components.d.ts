@@ -6,56 +6,140 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface GgBackdrop {
         /**
-          * The first name
+          * A prop to make the backdrop visible
          */
-        "first": string;
+        "open": boolean;
+    }
+    interface GgExpensesList {
+    }
+    interface GgFunctionalButton {
+    }
+    interface GgIcon {
         /**
-          * The last name
+          * Name of the icon
          */
-        "last": string;
+        "name": string;
+    }
+    interface GgListItem {
         /**
-          * The middle name
+          * The expense amount
          */
-        "middle": string;
+        "amount": string;
+        /**
+          * The date when expense is made
+         */
+        "date": string;
+        /**
+          * Description
+         */
+        "description": string;
+        /**
+          * The function that is tirggered by delete button
+         */
+        "onDelete": (event: Event) => void;
+        /**
+          * The function that is tirggered by edit button
+         */
+        "onEdit": (event: Event) => void;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLGgBackdropElement extends Components.GgBackdrop, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLGgBackdropElement: {
+        prototype: HTMLGgBackdropElement;
+        new (): HTMLGgBackdropElement;
+    };
+    interface HTMLGgExpensesListElement extends Components.GgExpensesList, HTMLStencilElement {
+    }
+    var HTMLGgExpensesListElement: {
+        prototype: HTMLGgExpensesListElement;
+        new (): HTMLGgExpensesListElement;
+    };
+    interface HTMLGgFunctionalButtonElement extends Components.GgFunctionalButton, HTMLStencilElement {
+    }
+    var HTMLGgFunctionalButtonElement: {
+        prototype: HTMLGgFunctionalButtonElement;
+        new (): HTMLGgFunctionalButtonElement;
+    };
+    interface HTMLGgIconElement extends Components.GgIcon, HTMLStencilElement {
+    }
+    var HTMLGgIconElement: {
+        prototype: HTMLGgIconElement;
+        new (): HTMLGgIconElement;
+    };
+    interface HTMLGgListItemElement extends Components.GgListItem, HTMLStencilElement {
+    }
+    var HTMLGgListItemElement: {
+        prototype: HTMLGgListItemElement;
+        new (): HTMLGgListItemElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "gg-backdrop": HTMLGgBackdropElement;
+        "gg-expenses-list": HTMLGgExpensesListElement;
+        "gg-functional-button": HTMLGgFunctionalButtonElement;
+        "gg-icon": HTMLGgIconElement;
+        "gg-list-item": HTMLGgListItemElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface GgBackdrop {
         /**
-          * The first name
+          * A prop to make the backdrop visible
          */
-        "first"?: string;
+        "open"?: boolean;
+    }
+    interface GgExpensesList {
+    }
+    interface GgFunctionalButton {
+    }
+    interface GgIcon {
         /**
-          * The last name
+          * Name of the icon
          */
-        "last"?: string;
+        "name"?: string;
+    }
+    interface GgListItem {
         /**
-          * The middle name
+          * The expense amount
          */
-        "middle"?: string;
+        "amount"?: string;
+        /**
+          * The date when expense is made
+         */
+        "date"?: string;
+        /**
+          * Description
+         */
+        "description"?: string;
+        /**
+          * The function that is tirggered by delete button
+         */
+        "onDelete"?: (event: Event) => void;
+        /**
+          * The function that is tirggered by edit button
+         */
+        "onEdit"?: (event: Event) => void;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "gg-backdrop": GgBackdrop;
+        "gg-expenses-list": GgExpensesList;
+        "gg-functional-button": GgFunctionalButton;
+        "gg-icon": GgIcon;
+        "gg-list-item": GgListItem;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "gg-backdrop": LocalJSX.GgBackdrop & JSXBase.HTMLAttributes<HTMLGgBackdropElement>;
+            "gg-expenses-list": LocalJSX.GgExpensesList & JSXBase.HTMLAttributes<HTMLGgExpensesListElement>;
+            "gg-functional-button": LocalJSX.GgFunctionalButton & JSXBase.HTMLAttributes<HTMLGgFunctionalButtonElement>;
+            "gg-icon": LocalJSX.GgIcon & JSXBase.HTMLAttributes<HTMLGgIconElement>;
+            "gg-list-item": LocalJSX.GgListItem & JSXBase.HTMLAttributes<HTMLGgListItemElement>;
         }
     }
 }

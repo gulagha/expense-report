@@ -1,5 +1,5 @@
 export default {
-  title: 'Example/FunctionalButton',
+  title: 'Atoms/FunctionalButton',
   tags: ['autodocs'],
   render: () => {
     return `
