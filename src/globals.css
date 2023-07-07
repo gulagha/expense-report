@@ -23,6 +23,7 @@
   --primary-color: var(--orange-4);
   --secondary-color: var(--black);
   --primary-color-hover: var(--orange-3);
+  --primary-color-active: var(--orange-5);
   --panel-background-color: var(--grey-1);
   --panel-selected-item-color: var(--grey-2);
   --icon-color: var(--black);
@@ -34,9 +35,10 @@
 
 [data-theme='dark'] {
   --background-color: var(--black);
-  --primary-color: var(--orange-2);
+  --primary-color: var(--orange-3);
   --secondary-color: var(--white);
-  --primary-color-hover: var(--orange-1);
+  --primary-color-hover: var(--orange-2);
+  --primary-color-active: var(--orange-1);
   --panel-background-color: var(--grey-5);
   --panel-selected-item-color: var(--grey-4);
   --icon-color: var(--white);

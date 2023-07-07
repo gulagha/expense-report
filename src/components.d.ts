@@ -12,6 +12,8 @@ export namespace Components {
          */
         "open": boolean;
     }
+    interface GgButton {
+    }
     interface GgExpensesList {
     }
     interface GgFunctionalButton {
@@ -52,6 +54,12 @@ declare global {
         prototype: HTMLGgBackdropElement;
         new (): HTMLGgBackdropElement;
     };
+    interface HTMLGgButtonElement extends Components.GgButton, HTMLStencilElement {
+    }
+    var HTMLGgButtonElement: {
+        prototype: HTMLGgButtonElement;
+        new (): HTMLGgButtonElement;
+    };
     interface HTMLGgExpensesListElement extends Components.GgExpensesList, HTMLStencilElement {
     }
     var HTMLGgExpensesListElement: {
@@ -78,6 +86,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "gg-backdrop": HTMLGgBackdropElement;
+        "gg-button": HTMLGgButtonElement;
         "gg-expenses-list": HTMLGgExpensesListElement;
         "gg-functional-button": HTMLGgFunctionalButtonElement;
         "gg-icon": HTMLGgIconElement;
@@ -90,6 +99,8 @@ declare namespace LocalJSX {
           * A prop to make the backdrop visible
          */
         "open"?: boolean;
+    }
+    interface GgButton {
     }
     interface GgExpensesList {
     }
@@ -125,6 +136,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "gg-backdrop": GgBackdrop;
+        "gg-button": GgButton;
         "gg-expenses-list": GgExpensesList;
         "gg-functional-button": GgFunctionalButton;
         "gg-icon": GgIcon;
@@ -136,6 +148,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "gg-backdrop": LocalJSX.GgBackdrop & JSXBase.HTMLAttributes<HTMLGgBackdropElement>;
+            "gg-button": LocalJSX.GgButton & JSXBase.HTMLAttributes<HTMLGgButtonElement>;
             "gg-expenses-list": LocalJSX.GgExpensesList & JSXBase.HTMLAttributes<HTMLGgExpensesListElement>;
             "gg-functional-button": LocalJSX.GgFunctionalButton & JSXBase.HTMLAttributes<HTMLGgFunctionalButtonElement>;
             "gg-icon": LocalJSX.GgIcon & JSXBase.HTMLAttributes<HTMLGgIconElement>;
