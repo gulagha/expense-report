@@ -13,6 +13,20 @@ export namespace Components {
         "open": boolean;
     }
     interface GgButton {
+        /**
+          * A prop that determines it the button is secondary
+         */
+        "secondary": boolean;
+    }
+    interface GgEditExpenseModal {
+        /**
+          * The initial data for the expense to edit. This should be provided from the parent component.
+         */
+        "expenseData": { amount: number; description: string; date: string };
+        /**
+          * The function to save the edited expense. This should be provided from the parent component.
+         */
+        "saveExpense": (data: { amount: number; description: string; date: string }) => void;
     }
     interface GgExpensesList {
     }
@@ -60,6 +74,12 @@ declare global {
         prototype: HTMLGgButtonElement;
         new (): HTMLGgButtonElement;
     };
+    interface HTMLGgEditExpenseModalElement extends Components.GgEditExpenseModal, HTMLStencilElement {
+    }
+    var HTMLGgEditExpenseModalElement: {
+        prototype: HTMLGgEditExpenseModalElement;
+        new (): HTMLGgEditExpenseModalElement;
+    };
     interface HTMLGgExpensesListElement extends Components.GgExpensesList, HTMLStencilElement {
     }
     var HTMLGgExpensesListElement: {
@@ -87,6 +107,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "gg-backdrop": HTMLGgBackdropElement;
         "gg-button": HTMLGgButtonElement;
+        "gg-edit-expense-modal": HTMLGgEditExpenseModalElement;
         "gg-expenses-list": HTMLGgExpensesListElement;
         "gg-functional-button": HTMLGgFunctionalButtonElement;
         "gg-icon": HTMLGgIconElement;
@@ -101,6 +122,20 @@ declare namespace LocalJSX {
         "open"?: boolean;
     }
     interface GgButton {
+        /**
+          * A prop that determines it the button is secondary
+         */
+        "secondary"?: boolean;
+    }
+    interface GgEditExpenseModal {
+        /**
+          * The initial data for the expense to edit. This should be provided from the parent component.
+         */
+        "expenseData"?: { amount: number; description: string; date: string };
+        /**
+          * The function to save the edited expense. This should be provided from the parent component.
+         */
+        "saveExpense"?: (data: { amount: number; description: string; date: string }) => void;
     }
     interface GgExpensesList {
     }
@@ -137,6 +172,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "gg-backdrop": GgBackdrop;
         "gg-button": GgButton;
+        "gg-edit-expense-modal": GgEditExpenseModal;
         "gg-expenses-list": GgExpensesList;
         "gg-functional-button": GgFunctionalButton;
         "gg-icon": GgIcon;
@@ -149,6 +185,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "gg-backdrop": LocalJSX.GgBackdrop & JSXBase.HTMLAttributes<HTMLGgBackdropElement>;
             "gg-button": LocalJSX.GgButton & JSXBase.HTMLAttributes<HTMLGgButtonElement>;
+            "gg-edit-expense-modal": LocalJSX.GgEditExpenseModal & JSXBase.HTMLAttributes<HTMLGgEditExpenseModalElement>;
             "gg-expenses-list": LocalJSX.GgExpensesList & JSXBase.HTMLAttributes<HTMLGgExpensesListElement>;
             "gg-functional-button": LocalJSX.GgFunctionalButton & JSXBase.HTMLAttributes<HTMLGgFunctionalButtonElement>;
             "gg-icon": LocalJSX.GgIcon & JSXBase.HTMLAttributes<HTMLGgIconElement>;
