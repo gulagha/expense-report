@@ -21,22 +21,19 @@ export class GgListItem {
   @Prop() onDelete: (expenseId: string) => void;
   @State() isExpanded: boolean = false;
 
-  private onClickItem = (event: Event) => {
+  private onClickItem = () => {
     const expanded = this.isExpanded
     this.isExpanded = !expanded;
-    console.log("eee: ", event)
   }
 
   private onClickEdit = (event: Event) => {
     event.stopPropagation();
     if(Boolean(this.onEdit)) this.onEdit(this.expenseData);
-    console.log("sikim blyat edit")
   }
 
   private onClickDelete = (event: Event) => {
     event.stopPropagation();
     if(Boolean(this.onDelete)) this.onDelete(this.expenseData.expenseId);
-    console.log("sikim blyat delete")
   }
 
   render() {
