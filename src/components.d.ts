@@ -76,6 +76,10 @@ export namespace Components {
          */
         "data": ExpenseData1[];
         /**
+          * The theme
+         */
+        "isDarkMode": boolean;
+        /**
           * An cction when creating a new expense
          */
         "onCreate": (expense: ExpenseData1) => void;
@@ -87,6 +91,10 @@ export namespace Components {
           * An action when editing the expense
          */
         "onEdit": (expense: ExpenseData1) => void;
+        /**
+          * Swtiches between dark and light mode
+         */
+        "switchDarkMode": () => void;
     }
     interface GgStackedChart {
         /**
@@ -236,6 +244,10 @@ declare namespace LocalJSX {
          */
         "data"?: ExpenseData1[];
         /**
+          * The theme
+         */
+        "isDarkMode"?: boolean;
+        /**
           * An cction when creating a new expense
          */
         "onCreate"?: (expense: ExpenseData1) => void;
@@ -247,6 +259,10 @@ declare namespace LocalJSX {
           * An action when editing the expense
          */
         "onEdit"?: (expense: ExpenseData1) => void;
+        /**
+          * Swtiches between dark and light mode
+         */
+        "switchDarkMode"?: () => void;
     }
     interface GgStackedChart {
         /**
