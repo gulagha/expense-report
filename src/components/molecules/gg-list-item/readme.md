@@ -7,13 +7,11 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                                     | Type                     | Default     |
-| ------------- | ------------- | ----------------------------------------------- | ------------------------ | ----------- |
-| `amount`      | `amount`      | The expense amount                              | `string`                 | `undefined` |
-| `date`        | `date`        | The date when expense is made                   | `string`                 | `undefined` |
-| `description` | `description` | Description                                     | `string`                 | `undefined` |
-| `onDelete`    | --            | The function that is tirggered by delete button | `(event: Event) => void` | `undefined` |
-| `onEdit`      | --            | The function that is tirggered by edit button   | `(event: Event) => void` | `undefined` |
+| Property      | Attribute | Description                                     | Type                          | Default     |
+| ------------- | --------- | ----------------------------------------------- | ----------------------------- | ----------- |
+| `expenseData` | --        | The expense amount                              | `ExpenseData`                 | `undefined` |
+| `onDelete`    | --        | The function that is tirggered by delete button | `(expenseId: string) => void` | `undefined` |
+| `onEdit`      | --        | The function that is tirggered by edit button   | `(data: ExpenseData) => void` | `undefined` |
 
 
 ## Dependencies

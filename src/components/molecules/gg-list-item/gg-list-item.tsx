@@ -1,4 +1,5 @@
 import { Component, Host, h, State, Prop } from '@stencil/core';
+import { ExpenseData } from '../../../utils/types';
 
 @Component({
   tag: 'gg-list-item',
@@ -9,23 +10,15 @@ export class GgListItem {
   /**
    * The expense amount
    */
-  @Prop() amount: string;
-  /**
-   * The date when expense is made
-   */
-  @Prop() date: string;
-   /**
-   * Description
-   */
-  @Prop() description: string;
+  @Prop() expenseData: ExpenseData;
   /**
    * The function that is tirggered by edit button
    */
-  @Prop() onEdit: (event: Event) => void;
+  @Prop() onEdit: (data: ExpenseData) => void;
   /**
    * The function that is tirggered by delete button
    */
-  @Prop() onDelete: (event: Event) => void;
+  @Prop() onDelete: (expenseId: string) => void;
   @State() isExpanded: boolean = false;
 
   private onClickItem = (event: Event) => {
@@ -36,13 +29,13 @@ export class GgListItem {
 
   private onClickEdit = (event: Event) => {
     event.stopPropagation();
-    if(Boolean(this.onEdit)) this.onEdit(event);
+    if(Boolean(this.onEdit)) this.onEdit(this.expenseData);
     console.log("sikim blyat edit")
   }
 
   private onClickDelete = (event: Event) => {
     event.stopPropagation();
-    if(Boolean(this.onDelete)) this.onDelete(event);
+    if(Boolean(this.onDelete)) this.onDelete(this.expenseData.expenseId);
     console.log("sikim blyat delete")
   }
 
@@ -51,17 +44,17 @@ export class GgListItem {
       <Host class={this.isExpanded ? "expanded" : null} onClick={this.onClickItem}>
         <div class="content">
           <div class="amount">
-            {this.amount}
+            {this.expenseData.amount}
           </div>
           {this.isExpanded
             ? <div class="date">
-              {this.date}
+              {new Date(this.expenseData.date).toDateString()}
             </div>
             : null
           }
           {this.isExpanded
             ? <div class="description">
-              {this.description}
+              {this.expenseData.description}
             </div>
             : null
           }

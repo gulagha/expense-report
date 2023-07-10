@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  background-color: var(--background-color);
+}
+
+.page-setup {
+  display: flex;
+  align-items: flex-end;
+  position: sticky;
+}
+
+.view {
+  color: var(--panel-selected-item-color);
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.view.selected {
+  font-weight: bold;
+  color: var(--text-color);
+  font-size: 18px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  background-color: var(--background-color);
+  padding: 10px;
+  top: 0px;
+}
+
+gg-icon svg {
+  height: 18px;
+  width: auto;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.add-expense {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 10px;
+  cursor: pointer;
+  color: var(--text-color);
+}

@@ -5,6 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ExpenseData } from "./components";
+import { ExpenseData as ExpenseData1 } from "./utils/types";
+export { ExpenseData } from "./components";
+export { ExpenseData as ExpenseData1 } from "./utils/types";
 export namespace Components {
     interface GgBackdrop {
         /**
@@ -29,6 +33,18 @@ export namespace Components {
         "saveExpense": (data: { amount: number; description: string; date: string }) => void;
     }
     interface GgExpensesList {
+        /**
+          * List of expenses
+         */
+        "expenses": ExpenseData[];
+        /**
+          * An action when deleting the expense
+         */
+        "onDelete": (expsenseID: string) => void;
+        /**
+          * An action when editing the expense
+         */
+        "onEdit": (expense: ExpenseData) => void;
     }
     interface GgFunctionalButton {
     }
@@ -42,25 +58,41 @@ export namespace Components {
         /**
           * The expense amount
          */
-        "amount": string;
-        /**
-          * The date when expense is made
-         */
-        "date": string;
-        /**
-          * Description
-         */
-        "description": string;
+        "expenseData": ExpenseData1;
         /**
           * The function that is tirggered by delete button
          */
-        "onDelete": (event: Event) => void;
+        "onDelete": (expenseId: string) => void;
         /**
           * The function that is tirggered by edit button
          */
-        "onEdit": (event: Event) => void;
+        "onEdit": (data: ExpenseData1) => void;
+    }
+    interface GgMain {
+    }
+    interface GgMainTemplate {
+        /**
+          * Expenses data
+         */
+        "data": ExpenseData1[];
+        /**
+          * An cction when creating a new expense
+         */
+        "onCreate": (expense: ExpenseData1) => void;
+        /**
+          * An action when deleting the expense
+         */
+        "onDelete": (expsenseID: string) => void;
+        /**
+          * An action when editing the expense
+         */
+        "onEdit": (expense: ExpenseData1) => void;
     }
     interface GgStackedChart {
+        /**
+          * Expenses grouped by month
+         */
+        "expenses": { month: string, amount: number, year: number }[];
     }
 }
 declare global {
@@ -106,6 +138,18 @@ declare global {
         prototype: HTMLGgListItemElement;
         new (): HTMLGgListItemElement;
     };
+    interface HTMLGgMainElement extends Components.GgMain, HTMLStencilElement {
+    }
+    var HTMLGgMainElement: {
+        prototype: HTMLGgMainElement;
+        new (): HTMLGgMainElement;
+    };
+    interface HTMLGgMainTemplateElement extends Components.GgMainTemplate, HTMLStencilElement {
+    }
+    var HTMLGgMainTemplateElement: {
+        prototype: HTMLGgMainTemplateElement;
+        new (): HTMLGgMainTemplateElement;
+    };
     interface HTMLGgStackedChartElement extends Components.GgStackedChart, HTMLStencilElement {
     }
     var HTMLGgStackedChartElement: {
@@ -120,6 +164,8 @@ declare global {
         "gg-functional-button": HTMLGgFunctionalButtonElement;
         "gg-icon": HTMLGgIconElement;
         "gg-list-item": HTMLGgListItemElement;
+        "gg-main": HTMLGgMainElement;
+        "gg-main-template": HTMLGgMainTemplateElement;
         "gg-stacked-chart": HTMLGgStackedChartElement;
     }
 }
@@ -147,6 +193,18 @@ declare namespace LocalJSX {
         "saveExpense"?: (data: { amount: number; description: string; date: string }) => void;
     }
     interface GgExpensesList {
+        /**
+          * List of expenses
+         */
+        "expenses"?: ExpenseData[];
+        /**
+          * An action when deleting the expense
+         */
+        "onDelete"?: (expsenseID: string) => void;
+        /**
+          * An action when editing the expense
+         */
+        "onEdit"?: (expense: ExpenseData) => void;
     }
     interface GgFunctionalButton {
     }
@@ -160,25 +218,41 @@ declare namespace LocalJSX {
         /**
           * The expense amount
          */
-        "amount"?: string;
-        /**
-          * The date when expense is made
-         */
-        "date"?: string;
-        /**
-          * Description
-         */
-        "description"?: string;
+        "expenseData"?: ExpenseData1;
         /**
           * The function that is tirggered by delete button
          */
-        "onDelete"?: (event: Event) => void;
+        "onDelete"?: (expenseId: string) => void;
         /**
           * The function that is tirggered by edit button
          */
-        "onEdit"?: (event: Event) => void;
+        "onEdit"?: (data: ExpenseData1) => void;
+    }
+    interface GgMain {
+    }
+    interface GgMainTemplate {
+        /**
+          * Expenses data
+         */
+        "data"?: ExpenseData1[];
+        /**
+          * An cction when creating a new expense
+         */
+        "onCreate"?: (expense: ExpenseData1) => void;
+        /**
+          * An action when deleting the expense
+         */
+        "onDelete"?: (expsenseID: string) => void;
+        /**
+          * An action when editing the expense
+         */
+        "onEdit"?: (expense: ExpenseData1) => void;
     }
     interface GgStackedChart {
+        /**
+          * Expenses grouped by month
+         */
+        "expenses"?: { month: string, amount: number, year: number }[];
     }
     interface IntrinsicElements {
         "gg-backdrop": GgBackdrop;
@@ -188,6 +262,8 @@ declare namespace LocalJSX {
         "gg-functional-button": GgFunctionalButton;
         "gg-icon": GgIcon;
         "gg-list-item": GgListItem;
+        "gg-main": GgMain;
+        "gg-main-template": GgMainTemplate;
         "gg-stacked-chart": GgStackedChart;
     }
 }
@@ -202,6 +278,8 @@ declare module "@stencil/core" {
             "gg-functional-button": LocalJSX.GgFunctionalButton & JSXBase.HTMLAttributes<HTMLGgFunctionalButtonElement>;
             "gg-icon": LocalJSX.GgIcon & JSXBase.HTMLAttributes<HTMLGgIconElement>;
             "gg-list-item": LocalJSX.GgListItem & JSXBase.HTMLAttributes<HTMLGgListItemElement>;
+            "gg-main": LocalJSX.GgMain & JSXBase.HTMLAttributes<HTMLGgMainElement>;
+            "gg-main-template": LocalJSX.GgMainTemplate & JSXBase.HTMLAttributes<HTMLGgMainTemplateElement>;
             "gg-stacked-chart": LocalJSX.GgStackedChart & JSXBase.HTMLAttributes<HTMLGgStackedChartElement>;
         }
     }
