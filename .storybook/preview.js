@@ -1,5 +1,6 @@
 import { defineCustomElements } from '../loader'
 import "../src/globals.css";
+import "./storybook-styles.css";
 
 defineCustomElements();
 

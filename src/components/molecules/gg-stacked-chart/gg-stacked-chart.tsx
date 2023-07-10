@@ -1,4 +1,4 @@
-import { Component, State, h, Element } from '@stencil/core';
+import { Component, Prop, h, Element } from '@stencil/core';
 
 @Component({
   tag: 'gg-stacked-chart',
@@ -8,14 +8,10 @@ import { Component, State, h, Element } from '@stencil/core';
 export class GgStackedChart {
   @Element() hostElement: HTMLGgStackedChartElement;
 
-  @State() expenses: { month: string, amount: number }[] = [];
-
-  componentWillLoad() {
-    const expensesAttr = this.hostElement.getAttribute('expenses');
-    if (Boolean(expensesAttr)) {
-      this.expenses = JSON.parse(expensesAttr);
-    }
-  }
+  /**
+   * Expenses grouped by month
+   */
+  @Prop({reflect: true}) expenses: { month: string, amount: number, year: number }[] = [];
 
   private getNormalizedHeight(amount: number): number {
     const maxAmount = Math.max(...this.expenses.map(expense => expense.amount));

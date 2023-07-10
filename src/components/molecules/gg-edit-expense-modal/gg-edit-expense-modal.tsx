@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 import { Component, Prop, State, h } from '@stencil/core';
 
 @Component({
@@ -12,7 +11,10 @@ export class GgEditExpenseModal {
    * This should be provided from the parent component.
    */
   @Prop() expenseData: { amount: number; description: string; date: string };
-
+  /**
+   * Cancel button handler
+   */
+  @Prop() onPressCancel: () => void;
   /**
    * The function to save the edited expense.
    * This should be provided from the parent component.
@@ -51,7 +53,7 @@ export class GgEditExpenseModal {
             <input type="date" value={this.inputData.date} onInput={(e) => this.handleInput(e, 'date')} />
           </label>
           <div class="buttons">
-            <gg-button secondary>C</gg-button>
+            <gg-button onClick={this.onPressCancel} secondary>C</gg-button>
             <gg-button onClick={this.handleSubmit}>S</gg-button>
           </div>
         </form>
