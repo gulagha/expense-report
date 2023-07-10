@@ -60,6 +60,8 @@ export namespace Components {
          */
         "onEdit": (event: Event) => void;
     }
+    interface GgStackedChart {
+    }
 }
 declare global {
     interface HTMLGgBackdropElement extends Components.GgBackdrop, HTMLStencilElement {
@@ -104,6 +106,12 @@ declare global {
         prototype: HTMLGgListItemElement;
         new (): HTMLGgListItemElement;
     };
+    interface HTMLGgStackedChartElement extends Components.GgStackedChart, HTMLStencilElement {
+    }
+    var HTMLGgStackedChartElement: {
+        prototype: HTMLGgStackedChartElement;
+        new (): HTMLGgStackedChartElement;
+    };
     interface HTMLElementTagNameMap {
         "gg-backdrop": HTMLGgBackdropElement;
         "gg-button": HTMLGgButtonElement;
@@ -112,6 +120,7 @@ declare global {
         "gg-functional-button": HTMLGgFunctionalButtonElement;
         "gg-icon": HTMLGgIconElement;
         "gg-list-item": HTMLGgListItemElement;
+        "gg-stacked-chart": HTMLGgStackedChartElement;
     }
 }
 declare namespace LocalJSX {
@@ -169,6 +178,8 @@ declare namespace LocalJSX {
          */
         "onEdit"?: (event: Event) => void;
     }
+    interface GgStackedChart {
+    }
     interface IntrinsicElements {
         "gg-backdrop": GgBackdrop;
         "gg-button": GgButton;
@@ -177,6 +188,7 @@ declare namespace LocalJSX {
         "gg-functional-button": GgFunctionalButton;
         "gg-icon": GgIcon;
         "gg-list-item": GgListItem;
+        "gg-stacked-chart": GgStackedChart;
     }
 }
 export { LocalJSX as JSX };
@@ -190,6 +202,7 @@ declare module "@stencil/core" {
             "gg-functional-button": LocalJSX.GgFunctionalButton & JSXBase.HTMLAttributes<HTMLGgFunctionalButtonElement>;
             "gg-icon": LocalJSX.GgIcon & JSXBase.HTMLAttributes<HTMLGgIconElement>;
             "gg-list-item": LocalJSX.GgListItem & JSXBase.HTMLAttributes<HTMLGgListItemElement>;
+            "gg-stacked-chart": LocalJSX.GgStackedChart & JSXBase.HTMLAttributes<HTMLGgStackedChartElement>;
         }
     }
 }
