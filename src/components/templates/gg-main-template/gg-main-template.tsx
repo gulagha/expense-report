@@ -45,7 +45,7 @@ export class GgMainTemplate {
 
   private createExpense = (event) => {
     event.stopPropagation()
-    if(Boolean(this.onCreate) && Boolean(this.newExpense)) this.onCreate(this.newExpense);
+    if(Boolean(this.onCreate)) this.onCreate(this.newExpense);
   }
 
   render() {

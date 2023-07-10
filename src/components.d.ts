@@ -28,6 +28,10 @@ export namespace Components {
          */
         "expenseData": { amount: number; description: string; date: string };
         /**
+          * Cancel button handler
+         */
+        "onPressCancel": () => void;
+        /**
           * The function to save the edited expense. This should be provided from the parent component.
          */
         "saveExpense": (data: { amount: number; description: string; date: string }) => void;
@@ -195,6 +199,10 @@ declare namespace LocalJSX {
           * The initial data for the expense to edit. This should be provided from the parent component.
          */
         "expenseData"?: { amount: number; description: string; date: string };
+        /**
+          * Cancel button handler
+         */
+        "onPressCancel"?: () => void;
         /**
           * The function to save the edited expense. This should be provided from the parent component.
          */
