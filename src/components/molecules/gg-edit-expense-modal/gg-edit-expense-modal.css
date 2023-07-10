@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.modal {
+  display: flex;
+  width: 240px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: var(--background-color);
+  --primary-color: var(--text-color);
+  z-index: 100000;
+  position: absolute;
+  color: var(--text-color)
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 90%;
+}
+
+label {
+  display: flex;
+  margin: 10px 0;
+  flex-direction: column;
+}
+
+label input {
+  height: 32px;
+  border-radius: 7px;
+  border-width: 2px;
+  border-style: solid;
+  color: var(--text-color);
+  border-color: var(--text-color);
+  background-color: var(--panel-background-color);
+}
+
+gg-button {
+  margin-top: 24px;
+  margin-left: 10px;
+}

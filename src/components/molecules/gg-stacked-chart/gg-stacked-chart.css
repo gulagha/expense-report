@@ -1,0 +1,28 @@
+.chart {
+  display: flex;
+  align-items: flex-end;
+  height: 250px;
+  color: var(--text-color)
+}
+
+.bar {
+  width: 30px;
+  background-color: var(--panel-background-color);
+  border-radius: 5px;
+  margin: 5px;
+  position: relative;
+}
+
+.amount {
+  position: absolute;
+  bottom: 10px;
+  font-size: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.month {
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+}

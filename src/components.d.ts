@@ -6,56 +6,203 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface GgBackdrop {
         /**
-          * The first name
+          * A prop to make the backdrop visible
          */
-        "first": string;
+        "open": boolean;
+    }
+    interface GgButton {
         /**
-          * The last name
+          * A prop that determines it the button is secondary
          */
-        "last": string;
+        "secondary": boolean;
+    }
+    interface GgEditExpenseModal {
         /**
-          * The middle name
+          * The initial data for the expense to edit. This should be provided from the parent component.
          */
-        "middle": string;
+        "expenseData": { amount: number; description: string; date: string };
+        /**
+          * The function to save the edited expense. This should be provided from the parent component.
+         */
+        "saveExpense": (data: { amount: number; description: string; date: string }) => void;
+    }
+    interface GgExpensesList {
+    }
+    interface GgFunctionalButton {
+    }
+    interface GgIcon {
+        /**
+          * Name of the icon
+         */
+        "name": string;
+    }
+    interface GgListItem {
+        /**
+          * The expense amount
+         */
+        "amount": string;
+        /**
+          * The date when expense is made
+         */
+        "date": string;
+        /**
+          * Description
+         */
+        "description": string;
+        /**
+          * The function that is tirggered by delete button
+         */
+        "onDelete": (event: Event) => void;
+        /**
+          * The function that is tirggered by edit button
+         */
+        "onEdit": (event: Event) => void;
+    }
+    interface GgStackedChart {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLGgBackdropElement extends Components.GgBackdrop, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLGgBackdropElement: {
+        prototype: HTMLGgBackdropElement;
+        new (): HTMLGgBackdropElement;
+    };
+    interface HTMLGgButtonElement extends Components.GgButton, HTMLStencilElement {
+    }
+    var HTMLGgButtonElement: {
+        prototype: HTMLGgButtonElement;
+        new (): HTMLGgButtonElement;
+    };
+    interface HTMLGgEditExpenseModalElement extends Components.GgEditExpenseModal, HTMLStencilElement {
+    }
+    var HTMLGgEditExpenseModalElement: {
+        prototype: HTMLGgEditExpenseModalElement;
+        new (): HTMLGgEditExpenseModalElement;
+    };
+    interface HTMLGgExpensesListElement extends Components.GgExpensesList, HTMLStencilElement {
+    }
+    var HTMLGgExpensesListElement: {
+        prototype: HTMLGgExpensesListElement;
+        new (): HTMLGgExpensesListElement;
+    };
+    interface HTMLGgFunctionalButtonElement extends Components.GgFunctionalButton, HTMLStencilElement {
+    }
+    var HTMLGgFunctionalButtonElement: {
+        prototype: HTMLGgFunctionalButtonElement;
+        new (): HTMLGgFunctionalButtonElement;
+    };
+    interface HTMLGgIconElement extends Components.GgIcon, HTMLStencilElement {
+    }
+    var HTMLGgIconElement: {
+        prototype: HTMLGgIconElement;
+        new (): HTMLGgIconElement;
+    };
+    interface HTMLGgListItemElement extends Components.GgListItem, HTMLStencilElement {
+    }
+    var HTMLGgListItemElement: {
+        prototype: HTMLGgListItemElement;
+        new (): HTMLGgListItemElement;
+    };
+    interface HTMLGgStackedChartElement extends Components.GgStackedChart, HTMLStencilElement {
+    }
+    var HTMLGgStackedChartElement: {
+        prototype: HTMLGgStackedChartElement;
+        new (): HTMLGgStackedChartElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "gg-backdrop": HTMLGgBackdropElement;
+        "gg-button": HTMLGgButtonElement;
+        "gg-edit-expense-modal": HTMLGgEditExpenseModalElement;
+        "gg-expenses-list": HTMLGgExpensesListElement;
+        "gg-functional-button": HTMLGgFunctionalButtonElement;
+        "gg-icon": HTMLGgIconElement;
+        "gg-list-item": HTMLGgListItemElement;
+        "gg-stacked-chart": HTMLGgStackedChartElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface GgBackdrop {
         /**
-          * The first name
+          * A prop to make the backdrop visible
          */
-        "first"?: string;
+        "open"?: boolean;
+    }
+    interface GgButton {
         /**
-          * The last name
+          * A prop that determines it the button is secondary
          */
-        "last"?: string;
+        "secondary"?: boolean;
+    }
+    interface GgEditExpenseModal {
         /**
-          * The middle name
+          * The initial data for the expense to edit. This should be provided from the parent component.
          */
-        "middle"?: string;
+        "expenseData"?: { amount: number; description: string; date: string };
+        /**
+          * The function to save the edited expense. This should be provided from the parent component.
+         */
+        "saveExpense"?: (data: { amount: number; description: string; date: string }) => void;
+    }
+    interface GgExpensesList {
+    }
+    interface GgFunctionalButton {
+    }
+    interface GgIcon {
+        /**
+          * Name of the icon
+         */
+        "name"?: string;
+    }
+    interface GgListItem {
+        /**
+          * The expense amount
+         */
+        "amount"?: string;
+        /**
+          * The date when expense is made
+         */
+        "date"?: string;
+        /**
+          * Description
+         */
+        "description"?: string;
+        /**
+          * The function that is tirggered by delete button
+         */
+        "onDelete"?: (event: Event) => void;
+        /**
+          * The function that is tirggered by edit button
+         */
+        "onEdit"?: (event: Event) => void;
+    }
+    interface GgStackedChart {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "gg-backdrop": GgBackdrop;
+        "gg-button": GgButton;
+        "gg-edit-expense-modal": GgEditExpenseModal;
+        "gg-expenses-list": GgExpensesList;
+        "gg-functional-button": GgFunctionalButton;
+        "gg-icon": GgIcon;
+        "gg-list-item": GgListItem;
+        "gg-stacked-chart": GgStackedChart;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "gg-backdrop": LocalJSX.GgBackdrop & JSXBase.HTMLAttributes<HTMLGgBackdropElement>;
+            "gg-button": LocalJSX.GgButton & JSXBase.HTMLAttributes<HTMLGgButtonElement>;
+            "gg-edit-expense-modal": LocalJSX.GgEditExpenseModal & JSXBase.HTMLAttributes<HTMLGgEditExpenseModalElement>;
+            "gg-expenses-list": LocalJSX.GgExpensesList & JSXBase.HTMLAttributes<HTMLGgExpensesListElement>;
+            "gg-functional-button": LocalJSX.GgFunctionalButton & JSXBase.HTMLAttributes<HTMLGgFunctionalButtonElement>;
+            "gg-icon": LocalJSX.GgIcon & JSXBase.HTMLAttributes<HTMLGgIconElement>;
+            "gg-list-item": LocalJSX.GgListItem & JSXBase.HTMLAttributes<HTMLGgListItemElement>;
+            "gg-stacked-chart": LocalJSX.GgStackedChart & JSXBase.HTMLAttributes<HTMLGgStackedChartElement>;
         }
     }
 }
