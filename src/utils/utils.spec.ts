@@ -1,19 +1,76 @@
-import { format } from './utils';
+const { groupByMonth } = require('./utils.ts'); // Assuming your function is in the groupExpenses.js file
 
-describe('format', () => {
-  it('returns empty string for no names defined', () => {
-    expect(format(undefined, undefined, undefined)).toEqual('');
+describe('groupByMonth', () => {
+  it('returns empty array for no data', () => {
+    expect(groupByMonth([])).toEqual([]);
   });
 
-  it('formats just first names', () => {
-    expect(format('Joseph', undefined, undefined)).toEqual('Joseph');
+  it('groups single entry', () => {
+    const data = [
+      {
+        "amount": 10.50,
+        "date": 1625526000000, // July 2021
+        "description": "Grocery shopping at the local supermarket"
+      }
+    ];
+
+    expect(groupByMonth(data)).toEqual([
+      {
+        month: 'July',
+        year: 2021,
+        amount: 10.5
+      }
+    ]);
   });
 
-  it('formats first and last names', () => {
-    expect(format('Joseph', undefined, 'Publique')).toEqual('Joseph Publique');
+  it('sums amounts in the same month and year', () => {
+    const data = [
+      {
+        "amount": 10.50,
+        "date": 1625526000000, // July 2021
+        "description": "Grocery shopping at the local supermarket"
+      },
+      {
+        "amount": 25.00,
+        "date": 1625612400000, // July 2021
+        "description": "Dinner at a cozy Italian restaurant"
+      }
+    ];
+
+    expect(groupByMonth(data)).toEqual([
+      {
+        month: 'July',
+        year: 2021,
+        amount: 35.5
+      }
+    ]);
   });
 
-  it('formats first, middle and last names', () => {
-    expect(format('Joseph', 'Quincy', 'Publique')).toEqual('Joseph Quincy Publique');
+  it('groups by month and year separately', () => {
+    const data = [
+      {
+        "amount": 10.50,
+        "date": 1625526000000, // July 2021
+        "description": "Grocery shopping at the local supermarket"
+      },
+      {
+        "amount": 15.00,
+        "date": 1643727600000, // February 2023
+        "description": "Coffee at a local cafe"
+      }
+    ];
+
+    expect(groupByMonth(data)).toEqual([
+      {
+        month: 'July',
+        year: 2021,
+        amount: 10.5
+      },
+      {
+        month: 'February',
+        year: 2022,
+        amount: 15.0
+      }
+    ]);
   });
 });
