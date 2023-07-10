@@ -2,39 +2,20 @@ import { Component, Host, State, h, Prop } from '@stencil/core';
 import { groupByMonth } from '../../../utils/utils';
 import { ExpenseData } from '../../../utils/types';
 
-const data = [
-  {
-    "expenseId": "ASFAS",
-    "amount": 10.50,
-    "date": 1625526000000,
-    "description": "Grocery shopping at the local supermarket"
-  },
-  {
-    "expenseId": "ASFASs",
-    "amount": 25.00,
-    "date": 1625612400000,
-    "description": "Dinner at a cozy Italian restaurant"
-  },
-  {
-    "expenseId": "ASFAsS",
-    "amount": 10.50,
-    "date": 1625526000000,
-    "description": "Grocery shopping at the local supermarket"
-  },
-  {
-    "expenseId": "ASFsdAS",
-    "amount": 25.00,
-    "date": 1643727600000,
-    "description": "Dinner at a cozy Italian restaurant"
-  },
-];
-
 @Component({
   tag: 'gg-main-template',
   styleUrl: 'gg-main-template.css',
   shadow: true,
 })
 export class GgMainTemplate {
+  /**
+   * The theme
+   */
+  @Prop() isDarkMode: boolean = false;
+  /**
+   * Swtiches between dark and light mode
+   */
+  @Prop() switchDarkMode: () => void;
   /**
    * An cction when creating a new expense
    */
@@ -52,7 +33,6 @@ export class GgMainTemplate {
    */
   @Prop({reflect: true}) data: ExpenseData[] = [];
   @State() isStackView: boolean = false;
-  @State() isDarkMode: boolean = false;
   @State() newExpense: ExpenseData;
 
   private setChartView = () => {
@@ -63,10 +43,6 @@ export class GgMainTemplate {
     this.isStackView = false;
   }
 
-  private switchDarkMode = () => {
-    this.isDarkMode = !this.isDarkMode;
-  }
-
   private createExpense = (event) => {
     event.stopPropagation()
     if(Boolean(this.onCreate) && Boolean(this.newExpense)) this.onCreate(this.newExpense);
@@ -74,7 +50,7 @@ export class GgMainTemplate {
 
   render() {
     return (
-      <Host data-theme={this.isDarkMode ? 'dark' : null}>
+      <Host>
         <div class="navigation">
           <div class="page-setup">
             <div class={this.isStackView ? 'view' : 'view selected'} onClick={this.setListView}>
@@ -92,8 +68,8 @@ export class GgMainTemplate {
         </div>
         {
           this.isStackView
-            ? <gg-stacked-chart expenses={groupByMonth(data)} />
-            : <gg-expenses-list onDelete={this.onDelete} onEdit={this.onEdit} expenses={data} />
+            ? <gg-stacked-chart expenses={groupByMonth(this.data)} />
+            : <gg-expenses-list onDelete={this.onDelete} onEdit={this.onEdit} expenses={this.data} />
         }
       </Host>
     );
