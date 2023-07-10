@@ -16,7 +16,7 @@ export function groupByMonth(data: ExpenseData[]): GroupedExpense[] {
           };
       }
 
-      acc[key].amount += item.amount;
+      acc[key].amount += Number(item.amount);
 
       return acc;
   }, {});
