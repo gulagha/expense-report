@@ -4,5 +4,8 @@
   },
   "extends": [
     "plugin:@stencil-community/recommended"
-  ]
+  ],
+  "rules": {
+    "react/jsx-no-bind": "off"
+  }
 }
