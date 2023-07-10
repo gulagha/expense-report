@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'expense-report',
+  globalStyle: 'src/globals.css',
   outputTargets: [
     {
       type: 'dist',
