@@ -19,9 +19,13 @@ In order to see the changes without building the project each time, run this par
 npx stencil build --watch
 ```
 
-# Backend
+# Running with backend
 
-If you want to use the api for this project, please use [this repo](https://github.com/gulagha/my-expenses-api) 
+If you want to use the backend for this project, please use [this repo](https://github.com/gulagha/my-expenses-api) 
+then run the app:
+```bash
+npm start
+```
 
 # Stencil Component Starter
 
