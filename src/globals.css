@@ -47,3 +47,13 @@
   --placeholder-color: var(--grey-3);
   --backdrop-color: var(--white-transparent-50);
 }
+
+gg-main {
+  height: 100vh;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--background-color);
+}
