@@ -44,6 +44,7 @@
     "@storybook/testing-library": "^0.0.14-next.2",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.11",
+    "husky": "^8.0.3",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
     "puppeteer": "^20.7.3",
