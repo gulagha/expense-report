@@ -66,4 +66,8 @@ To run the unit tests for the components, run:
 npm test
 ```
 
+# Limitations - Things to improve
+- Tests can be improved
+- Error handling can be done better
+
 Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
